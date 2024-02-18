@@ -1,17 +1,19 @@
 class Persona:
-    def __init__(self, nombre, apellido, edad):
+
+# *args para argumentos variables como tupla
+# **args para argumentos variables de tipo diccionario
+    def __init__(self, nombre, apellido, edad, *args, **kwargs):
         self.nombre = nombre
         self.apellido = apellido
         self.edad = edad
+        self.args = args
+        self.kwargs = kwargs
 
     def mostrar_detalle(self):
-        print(f'Persona: {self.nombre} {self.apellido} {self.edad}')
+        print(f'Persona: {self.nombre} {self.apellido} {self.edad} {self.args} {self.kwargs}')
 
-persona1 = Persona('Nelson','Ortiz',25)
-#persona1.mostrar_detalle()
-Persona.mostrar_detalle(persona1)
-persona1.telefono = 978856478
-print(persona1.nombre, persona1.apellido, persona1.edad, persona1.telefono)
+persona1 = Persona('Nelson','Ortiz',25, '311600790', 2,3,5, m='manzana', p='pera')
+persona1.mostrar_detalle()
 
 
 persona2 = Persona('Elsa','Fernandez',27)
